@@ -16,22 +16,22 @@
   width: 40px;
   border-radius: 50%;
 }
-.card-price {
+.card-category {
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 15px;
   text-transform: uppercase;
 }
-.card-name {
+.card-description {
   position: absolute;
   bottom: 10px;
   left: 10px;
 }
-h2.card-name  {
+.card-description h2 {
   font-size: 20px;
 }
-.card-name p {
+.card-description p {
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;

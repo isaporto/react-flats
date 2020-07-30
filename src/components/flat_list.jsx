@@ -2,7 +2,7 @@ import React from 'react';
 import Flat from './flat';
 
 const FlatList = (props) => {
-  const { flats } = props;
+  const { flats, selectFunction } = props;
   return (
     <div className="flat-list">
       {flats.map((flat) => {
@@ -12,6 +12,9 @@ const FlatList = (props) => {
             price={flat.price}
             name={flat.name}
             imgUrl={flat.imageUrl}
+            selectFunction={selectFunction}
+            lat={flat.lat}
+            lng={flat.lng}
           />
         );
       })}

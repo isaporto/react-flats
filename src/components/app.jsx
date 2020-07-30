@@ -9,15 +9,20 @@ class App extends Component {
 
     this.state = {
       flats,
+      selectedFlat: null,
     };
+  }
+
+  selectFlat = (flat) => {
+    this.setState({ selectedFlat: flat });
   }
 
   render () {
     const { state } = this;
     return (
       <div>
-        <FlatList flats={state.flats} />
-        <Map />
+        <FlatList flats={state.flats} selectFunction={this.selectFlat} />
+        <Map target={state.selectedFlat} />
       </div>
     );
   }

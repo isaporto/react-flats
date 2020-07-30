@@ -1,31 +1,27 @@
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import Marker from './marker';
 
 class Map extends Component {
   static defaultProps = {
     center: {
-      lat: 48.0,
-      lng: 2.0
+      lat: 48.852966,
+      lng: 2.349902
     },
-    zoom: 11
+    zoom: 13
   };
 
   render() {
+    const { target, center, zoom } = this.props;
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div className="map-container">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          defaultCenter={center}
+          defaultZoom={zoom}
         >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          />
+          { target ? <Marker lat={target.lat} lng={target.lng} /> : null }
         </GoogleMapReact>
       </div>
     );
